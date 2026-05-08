@@ -1,6 +1,6 @@
 # Kit (kit)
 
-Kit (formerly ConvertKit) is a creator marketing platform for newsletters, automated sequences, landing pages, commerce, and integrations. Strong support for paid newsletters and sponsorships.
+Kit (formerly ConvertKit) is an email marketing and creator platform. The Kit API V4 exposes subscribers, broadcasts, sequences, tags, custom fields, forms, purchases, and webhooks. V3 is deprecated.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/kit/refs/heads/main/apis.yml)
 
@@ -9,8 +9,12 @@ Kit (formerly ConvertKit) is a creator marketing platform for newsletters, autom
 ## Type
 - **x-type:** company
 
-## Tags:
- - Email Marketing, Creator, Newsletter, Automation, Sequences
+## APIs
+- **Kit API V4** — REST at `https://api.kit.com/v4`. OAuth 2.0 / API key; cursor-based pagination, bulk and async endpoints. Docs: https://developers.kit.com/v4/api-reference
+- **Kit API V3 (Deprecated)** — Legacy ConvertKit API at `https://api.convertkit.com/v3`. Migrate to V4.
+
+## Tags
+- Email Marketing, Creator Economy, Newsletters, Automation, Subscribers
 
 ## Timestamps
 - **Created:** 2026-05-08
@@ -18,9 +22,11 @@ Kit (formerly ConvertKit) is a creator marketing platform for newsletters, autom
 
 ## Common Properties
 - [Website](https://kit.com/)
-- [Plans](plans/kit-plans-pricing.yml) — placeholder, pipeline reconciles later
-- [RateLimits](rate-limits/kit-rate-limits.yml) — placeholder
-- [FinOps](finops/kit-finops.yml) — FOCUS-aligned placeholder
+- [Developer Portal](https://developers.kit.com/)
+- [Pricing](https://kit.com/pricing)
+- [Plans](plans/kit-plans-pricing.yml) — reconciled (Newsletter free, Creator $33/mo entry, Creator Pro $66/mo entry)
+- [RateLimits](rate-limits/kit-rate-limits.yml) — partial (concrete limits not publicly documented)
+- [FinOps](finops/kit-finops.yml) — FOCUS-aligned, reconciled
 
 ## Maintainers
 **FN:** Kin Lane

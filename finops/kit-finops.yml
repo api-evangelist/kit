@@ -5,20 +5,19 @@ provider: Kit
 providerId: kit
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Email Marketing
-- Creator
-- Newsletter
-- Automation
-- Sequences
+- Creator Economy
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Kit. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: FOCUS-aligned FinOps profile for Kit's subscriber-tier subscription pricing.
+notes: >-
+  Kit charges a subscription fee that scales with active subscriber count. API access is
+  included in the eligible plans rather than metered separately.
 sources:
-- https://kit.com/
+- https://kit.com/pricing
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,15 +28,15 @@ alignedWith:
 publisherName: Kit
 serviceCategory: Email Marketing
 billingModel:
-  pricingCategory: To Be Reconciled
-  billingFrequency: Monthly
+  pricingCategory: Subscription (tiered by subscriber count)
+  billingFrequency: Monthly or Annual
   billingCurrency: USD
   chargeCategories:
   - Usage
   - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Kit
+  ServiceName: Kit Email Marketing
   ServiceCategory: Email Marketing
   ProviderName: Kit
   PublisherName: Kit
@@ -45,22 +44,27 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
-  aggregation: sum
+- name: subscriber_count
+  description: Active subscribers on the account; pricing tier scales with this number.
+  unit: subscribers
+  aggregation: max
   dimensions:
   - account
-  - resource
+- name: plan_subscription
+  description: Monthly or annual plan fee.
+  unit: months
+  aggregation: sum
+  dimensions:
+  - plan_tier
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Track subscriber-count growth against pricing-tier breakpoints to forecast plan upgrades.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Allocate plan cost to the marketing/newsletter cost center.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Prune unengaged subscribers regularly to stay within the lower price tier.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign a marketing-ops owner to review plan tier vs. actual subscriber count quarterly.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -8,28 +8,31 @@ modified: '2026-05-08'
 reconciled: false
 tags:
 - Email Marketing
-- Creator
-- Newsletter
-- Automation
-- Sequences
+- Creator Economy
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Kit. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: Rate limits for the Kit API. Specific numerical limits are not publicly documented.
+notes: >-
+  Kit's developer documentation references improved performance and bulk/async handling
+  in V4 but does not publish concrete request-per-second / per-minute numbers in the
+  publicly accessible portion of the docs. Authenticated developers should consult the
+  full API reference and response headers in production for current limits.
 sources:
-- https://kit.com/
+- https://developers.kit.com/v4/api-reference
 responseCodes:
   throttled: 429
 limits:
 - name: Default
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: requests
+  limit: undocumented
+  notes: Concrete limits not published in public docs; check response headers.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Honor Retry-After header and apply exponential backoff with jitter.
+- name: Bulk Endpoints
+  description: Use V4 bulk and async endpoints for high-volume subscriber/tag updates.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
