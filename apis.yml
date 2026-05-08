@@ -1,0 +1,29 @@
+aid: kit
+url: https://raw.githubusercontent.com/api-evangelist/kit/refs/heads/main/apis.yml
+name: Kit
+x-type: company
+description: >-
+  Kit (formerly ConvertKit) is a creator marketing platform for newsletters, automated sequences, landing pages, commerce, and integrations. Strong support for paid newsletters and sponsorships.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Email Marketing
+  - Creator
+  - Newsletter
+  - Automation
+  - Sequences
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://kit.com/
+  - type: Plans
+    url: plans/kit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/kit-rate-limits.yml
+  - type: FinOps
+    url: finops/kit-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
