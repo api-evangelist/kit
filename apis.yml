@@ -1,7 +1,7 @@
 aid: kit
 url: https://raw.githubusercontent.com/api-evangelist/kit/refs/heads/main/apis.yml
 name: Kit
-x-type: company
+kind: company
 description: >-
   Kit (formerly ConvertKit) is an email marketing and creator platform. The Kit API V4
   exposes subscribers, broadcasts, sequences, tags, custom fields, forms, purchases,
