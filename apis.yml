@@ -60,6 +60,8 @@ apis:
       - type: Deprecation
         url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
 common:
+  - type: GitHubOrganization
+    url: https://github.com/kit
   - type: Website
     url: https://kit.com/
   - type: Portal
