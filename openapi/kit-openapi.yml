@@ -1,0 +1,395 @@
+openapi: 3.1.0
+info:
+  title: Kit API V4
+  description: >-
+    Kit (formerly ConvertKit) API V4 for email marketing and the creator
+    economy. Manage subscribers, broadcasts, tags, custom fields, forms, and
+    account-level statistics. Supports OAuth 2.0 and API key authentication.
+  version: v4
+  contact:
+    name: Kit Developer Support
+    url: https://developers.kit.com/v4/api-reference
+servers:
+  - url: https://api.kit.com/v4
+    description: Kit API V4 production server
+security:
+  - ApiKeyAuth: []
+  - OAuth2: []
+tags:
+  - name: Account
+    description: Account, creator profile, and account-level statistics
+  - name: Subscribers
+    description: Subscriber records and lifecycle
+  - name: Broadcasts
+    description: One-off email broadcasts
+paths:
+  /account:
+    get:
+      operationId: getAccount
+      summary: Get Account
+      description: Retrieve the current Kit account and associated user information.
+      tags:
+        - Account
+      responses:
+        '200':
+          description: Successful response with account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /account/colors:
+    get:
+      operationId: getAccountColors
+      summary: Get Account Colors
+      description: List configured color preferences for the account.
+      tags:
+        - Account
+      responses:
+        '200':
+          description: Successful response with color preferences
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColorsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateAccountColors
+      summary: Update Account Colors
+      description: Update the color preferences for the account.
+      tags:
+        - Account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ColorsRequest'
+      responses:
+        '200':
+          description: Updated color preferences
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColorsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /account/email_stats:
+    get:
+      operationId: getAccountEmailStats
+      summary: Get Email Stats
+      description: Retrieve email statistics for the last 90 days.
+      tags:
+        - Account
+      responses:
+        '200':
+          description: Successful response with email statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /account/growth_stats:
+    get:
+      operationId: getAccountGrowthStats
+      summary: Get Growth Stats
+      description: Retrieve subscriber growth metrics for a specified period.
+      tags:
+        - Account
+      parameters:
+        - name: starting
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: Start of the reporting window (YYYY-MM-DD)
+        - name: ending
+          in: query
+          required: false
+          schema:
+            type: string
+            format: date
+          description: End of the reporting window (YYYY-MM-DD)
+      responses:
+        '200':
+          description: Successful response with growth statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /subscribers:
+    get:
+      operationId: listSubscribers
+      summary: List Subscribers
+      description: List subscribers in the Kit account with cursor-based pagination.
+      tags:
+        - Subscribers
+      parameters:
+        - name: after
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Cursor returned by a previous page response
+        - name: before
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Cursor returned by a previous page response
+        - name: per_page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 500
+          description: Number of records per page
+      responses:
+        '200':
+          description: Successful response with subscriber list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createSubscriber
+      summary: Create Subscriber
+      description: Create a subscriber. Behaves as an upsert based on email address.
+      tags:
+        - Subscribers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberRequest'
+      responses:
+        '201':
+          description: Subscriber created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /broadcasts:
+    get:
+      operationId: listBroadcasts
+      summary: List Broadcasts
+      description: List all broadcasts, including drafts, scheduled, and sent.
+      tags:
+        - Broadcasts
+      responses:
+        '200':
+          description: Successful response with broadcast list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createBroadcast
+      summary: Create Broadcast
+      description: Create a new broadcast as a draft or scheduled send.
+      tags:
+        - Broadcasts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+      responses:
+        '201':
+          description: Broadcast created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Kit-Api-Key
+      description: Personal API key issued from the Kit developer portal
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.kit.com/oauth/authorize
+          tokenUrl: https://api.kit.com/oauth/token
+          scopes: {}
+  responses:
+    Unauthorized:
+      description: Missing or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+    Account:
+      type: object
+      properties:
+        name:
+          type: string
+        plan_type:
+          type: string
+        primary_email_address:
+          type: string
+    AccountResponse:
+      type: object
+      properties:
+        account:
+          $ref: '#/components/schemas/Account'
+    ColorsRequest:
+      type: object
+      properties:
+        colors:
+          type: array
+          items:
+            type: string
+    ColorsResponse:
+      type: object
+      properties:
+        colors:
+          type: array
+          items:
+            type: string
+    StatsResponse:
+      type: object
+      properties:
+        stats:
+          type: object
+          additionalProperties: true
+    Subscriber:
+      type: object
+      properties:
+        id:
+          type: integer
+        first_name:
+          type: string
+        email_address:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        fields:
+          type: object
+          additionalProperties: true
+    SubscriberRequest:
+      type: object
+      required:
+        - email_address
+      properties:
+        email_address:
+          type: string
+        first_name:
+          type: string
+        state:
+          type: string
+        fields:
+          type: object
+          additionalProperties: true
+    SubscriberResponse:
+      type: object
+      properties:
+        subscriber:
+          $ref: '#/components/schemas/Subscriber'
+    SubscriberListResponse:
+      type: object
+      properties:
+        subscribers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscriber'
+        pagination:
+          type: object
+          properties:
+            has_previous_page:
+              type: boolean
+            has_next_page:
+              type: boolean
+            start_cursor:
+              type: string
+            end_cursor:
+              type: string
+            per_page:
+              type: integer
+    Broadcast:
+      type: object
+      properties:
+        id:
+          type: integer
+        subject:
+          type: string
+        preview_text:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        public:
+          type: boolean
+        published_at:
+          type: string
+          format: date-time
+          nullable: true
+        send_at:
+          type: string
+          format: date-time
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    BroadcastRequest:
+      type: object
+      required:
+        - subject
+      properties:
+        subject:
+          type: string
+        preview_text:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        public:
+          type: boolean
+        send_at:
+          type: string
+          format: date-time
+          nullable: true
+    BroadcastResponse:
+      type: object
+      properties:
+        broadcast:
+          $ref: '#/components/schemas/Broadcast'
+    BroadcastListResponse:
+      type: object
+      properties:
+        broadcasts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Broadcast'
