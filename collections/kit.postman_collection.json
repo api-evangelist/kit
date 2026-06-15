@@ -1,0 +1,1335 @@
+{
+  "item": [
+    {
+      "id": "c2339d42-0031-4fac-bb31-5c2dc685ad84",
+      "name": "Account",
+      "description": {
+        "content": "Account, creator profile, and account-level statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45da4b70-ac06-4a43-a2a2-23d09ce32c3a",
+          "name": "Get Account",
+          "request": {
+            "name": "Get Account",
+            "description": {
+              "content": "Retrieve the current Kit account and associated user information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "550b2003-170e-4cf0-b6cf-bf3f857962ca",
+              "name": "Successful response with account details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"name\": \"string\",\n    \"plan_type\": \"string\",\n    \"primary_email_address\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ced0463-e010-43be-ac6f-458e92805e4a",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4c2c353-17b5-408e-a514-f76cb45fb46b",
+          "name": "Get Account Colors",
+          "request": {
+            "name": "Get Account Colors",
+            "description": {
+              "content": "List configured color preferences for the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "colors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0aa4f828-bdaa-47cf-8640-a76650abea54",
+              "name": "Successful response with color preferences",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "colors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"colors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15e0bebf-8497-49ba-80a3-06915193be35",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "colors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37871d9e-8669-444d-b974-b20de0f86da9",
+          "name": "Update Account Colors",
+          "request": {
+            "name": "Update Account Colors",
+            "description": {
+              "content": "Update the color preferences for the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "colors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"colors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56ca87a6-6452-49db-9436-033dbeaeb4e2",
+              "name": "Updated color preferences",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "colors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"colors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"colors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "570e86a0-20a6-4c64-97ed-66914054be57",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "colors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"colors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8a129c1-90c3-47fb-9fd7-aa94475cb0aa",
+          "name": "Get Email Stats",
+          "request": {
+            "name": "Get Email Stats",
+            "description": {
+              "content": "Retrieve email statistics for the last 90 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "email_stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9f8ee67-7e15-47d7-87ff-59e5fa9d027b",
+              "name": "Successful response with email statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "email_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"stats\": {\n    \"key_0\": 2367\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e37d2c5a-388a-4164-9735-eb27a84d00f2",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "email_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58215fbb-a62f-4c74-bdd6-f29c6a0c1f99",
+          "name": "Get Growth Stats",
+          "request": {
+            "name": "Get Growth Stats",
+            "description": {
+              "content": "Retrieve subscriber growth metrics for a specified period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "growth_stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "starting",
+                  "value": "<date>",
+                  "description": "Start of the reporting window (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending",
+                  "value": "<date>",
+                  "description": "End of the reporting window (YYYY-MM-DD)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd6d50b0-4bbd-4eb5-8169-8518612ba876",
+              "name": "Successful response with growth statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "growth_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "starting",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "ending",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"stats\": {\n    \"key_0\": 2367\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17093dac-449a-43ab-995c-27dc708c220e",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "growth_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "starting",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "ending",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a838118e-b5e5-4413-8605-c45634bbfabf",
+      "name": "Subscribers",
+      "description": {
+        "content": "Subscriber records and lifecycle",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "583b3963-94e1-4e98-a1c5-3e6e991ede03",
+          "name": "List Subscribers",
+          "request": {
+            "name": "List Subscribers",
+            "description": {
+              "content": "List subscribers in the Kit account with cursor-based pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>",
+                  "description": "Cursor returned by a previous page response"
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<string>",
+                  "description": "Cursor returned by a previous page response"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "500",
+                  "description": "Number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62eefcdc-61a0-4c7c-a74c-dba2dc3b93e4",
+              "name": "Successful response with subscriber list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscribers\": [\n    {\n      \"id\": 9167,\n      \"first_name\": \"string\",\n      \"email_address\": \"string\",\n      \"state\": \"string\",\n      \"created_at\": \"2007-04-02T16:50:23.885Z\",\n      \"fields\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"id\": 471,\n      \"first_name\": \"string\",\n      \"email_address\": \"string\",\n      \"state\": \"string\",\n      \"created_at\": \"2024-02-02T16:16:00.985Z\",\n      \"fields\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"has_previous_page\": true,\n    \"has_next_page\": true,\n    \"start_cursor\": \"string\",\n    \"end_cursor\": \"string\",\n    \"per_page\": 1402\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4696fc8-ea43-4d51-a8c1-92a5da9fa17c",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "190e9d50-44c7-4a8f-87d8-38d7dd9f2de8",
+          "name": "Create Subscriber",
+          "request": {
+            "name": "Create Subscriber",
+            "description": {
+              "content": "Create a subscriber. Behaves as an upsert based on email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email_address\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"fields\": {\n    \"key_0\": 3321\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "969d5de2-2a5b-4b3b-b01c-54caa7c8da66",
+              "name": "Subscriber created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email_address\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriber\": {\n    \"id\": 4201,\n    \"first_name\": \"string\",\n    \"email_address\": \"string\",\n    \"state\": \"string\",\n    \"created_at\": \"1971-06-27T04:07:34.955Z\",\n    \"fields\": {\n      \"key_0\": 4519,\n      \"key_1\": 3030.0588707326615\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09c308cb-1519-4c1c-87e3-e433221822cc",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email_address\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "75c64412-9a58-4fd3-94b4-3a04d731c055",
+      "name": "Broadcasts",
+      "description": {
+        "content": "One-off email broadcasts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb4a9625-e34c-4dca-b50d-ce10a01bcbec",
+          "name": "List Broadcasts",
+          "request": {
+            "name": "List Broadcasts",
+            "description": {
+              "content": "List all broadcasts, including drafts, scheduled, and sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "broadcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2f9ca6c-4a72-4655-987a-943b7bd1d7b3",
+              "name": "Successful response with broadcast list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"broadcasts\": [\n    {\n      \"id\": 1108,\n      \"subject\": \"string\",\n      \"preview_text\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"public\": false,\n      \"published_at\": \"1960-06-12T11:45:12.856Z\",\n      \"send_at\": \"1976-11-19T13:44:40.325Z\",\n      \"created_at\": \"1983-04-18T15:03:09.293Z\"\n    },\n    {\n      \"id\": 7527,\n      \"subject\": \"string\",\n      \"preview_text\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"public\": false,\n      \"published_at\": \"1970-11-02T02:42:50.281Z\",\n      \"send_at\": \"1994-11-03T20:46:00.476Z\",\n      \"created_at\": \"1979-03-02T05:21:58.865Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de9b2178-7996-4072-a575-6441bcf84cfc",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2e7531e-6e63-4a00-b5ee-cfbeead3d86e",
+          "name": "Create Broadcast",
+          "request": {
+            "name": "Create Broadcast",
+            "description": {
+              "content": "Create a new broadcast as a draft or scheduled send.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "broadcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"preview_text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"public\": \"<boolean>\",\n  \"send_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b55f764-786f-402e-857d-6970d90daa50",
+              "name": "Broadcast created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"preview_text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"public\": \"<boolean>\",\n  \"send_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"broadcast\": {\n    \"id\": 279,\n    \"subject\": \"string\",\n    \"preview_text\": \"string\",\n    \"description\": \"string\",\n    \"content\": \"string\",\n    \"public\": true,\n    \"published_at\": \"1963-03-15T01:59:09.654Z\",\n    \"send_at\": \"1979-01-08T17:53:03.198Z\",\n    \"created_at\": \"2000-09-15T11:01:04.034Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "635ad9dc-bf89-4e9f-80c4-76468089a65e",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"preview_text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"public\": \"<boolean>\",\n  \"send_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kit.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Kit-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3403d661-1587-400c-9141-51608b6c3994",
+    "name": "Kit API V4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kit (formerly ConvertKit) API V4 for email marketing and the creator economy. Manage subscribers, broadcasts, tags, custom fields, forms, and account-level statistics. Supports OAuth 2.0 and API key authentication.\n\nContact Support:\n Name: Kit Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
