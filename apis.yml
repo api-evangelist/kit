@@ -70,7 +70,7 @@ common:
     url: https://kit.com/
   - type: Portal
     url: https://developers.kit.com/
-  - type: SignUp
+  - type: Signup
     url: https://app.kit.com/users/signup
   - type: Pricing
     url: https://kit.com/pricing
