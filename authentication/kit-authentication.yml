@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/kit-openapi.yml
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-Kit-Api-Key
+  description: Personal API key issued from the Kit developer portal
+  sources:
+  - openapi/kit-openapi.yml
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.kit.com/oauth/authorize
+    tokenUrl: https://api.kit.com/oauth/token
+    scopes: 0
+  sources:
+  - openapi/kit-openapi.yml
