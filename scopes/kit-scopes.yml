@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: searched
+source: openapi/kit-openapi.yml
+docs: https://developers.kit.com/api-reference/oauth-proof-key-for-code-exchange-flow
+note: >-
+  Kit API V4 OAuth currently exposes a single default scope (public); the docs
+  state "Fine-grained access control via scopes coming soon"
+  (https://developers.kit.com/api-reference/oauth-proof-key-for-code-exchange-flow).
+schemes:
+- name: OAuth2
+  source: openapi/kit-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.kit.com/oauth/authorize
+    tokenUrl: https://api.kit.com/oauth/token
+scopes:
+- scope: public
+  description: >-
+    Default (and currently only) scope for Kit API V4 OAuth apps, granting API
+    access on behalf of the authorizing account; fine-grained access control
+    via scopes is documented as coming soon.
+  sources:
+  - https://developers.kit.com/api-reference/oauth-proof-key-for-code-exchange-flow
