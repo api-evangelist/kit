@@ -64,6 +64,8 @@ apis:
       - type: Deprecation
         url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
 common:
+  - type: AgenticAccess
+    url: agentic-access/kit-agentic-access.yml
   - type: TrustCenter
     url: security/kit-trust-center.yml
   - type: VulnerabilityDisclosure
