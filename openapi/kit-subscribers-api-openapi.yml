@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Kit API V4 Account Subscribers API
+  description: Kit (formerly ConvertKit) API V4 for email marketing and the creator economy. Manage subscribers, broadcasts, tags, custom fields, forms, and account-level statistics. Supports OAuth 2.0 and API key authentication.
+  version: v4
+  contact:
+    name: Kit Developer Support
+    url: https://developers.kit.com/v4/api-reference
+servers:
+- url: https://api.kit.com/v4
+  description: Kit API V4 production server
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Subscribers
+  description: Subscriber records and lifecycle
+paths:
+  /subscribers:
+    get:
+      operationId: listSubscribers
+      summary: List Subscribers
+      description: List subscribers in the Kit account with cursor-based pagination.
+      tags:
+      - Subscribers
+      parameters:
+      - name: after
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Cursor returned by a previous page response
+      - name: before
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Cursor returned by a previous page response
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 500
+        description: Number of records per page
+      responses:
+        '200':
+          description: Successful response with subscriber list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createSubscriber
+      summary: Create Subscriber
+      description: Create a subscriber. Behaves as an upsert based on email address.
+      tags:
+      - Subscribers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberRequest'
+      responses:
+        '201':
+          description: Subscriber created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Subscriber:
+      type: object
+      properties:
+        id:
+          type: integer
+        first_name:
+          type: string
+        email_address:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        fields:
+          type: object
+          additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+    SubscriberResponse:
+      type: object
+      properties:
+        subscriber:
+          $ref: '#/components/schemas/Subscriber'
+    SubscriberRequest:
+      type: object
+      required:
+      - email_address
+      properties:
+        email_address:
+          type: string
+        first_name:
+          type: string
+        state:
+          type: string
+        fields:
+          type: object
+          additionalProperties: true
+    SubscriberListResponse:
+      type: object
+      properties:
+        subscribers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscriber'
+        pagination:
+          type: object
+          properties:
+            has_previous_page:
+              type: boolean
+            has_next_page:
+              type: boolean
+            start_cursor:
+              type: string
+            end_cursor:
+              type: string
+            per_page:
+              type: integer
+  responses:
+    Unauthorized:
+      description: Missing or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Kit-Api-Key
+      description: Personal API key issued from the Kit developer portal
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.kit.com/oauth/authorize
+          tokenUrl: https://api.kit.com/oauth/token
+          scopes: {}

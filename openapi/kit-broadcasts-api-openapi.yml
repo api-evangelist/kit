@@ -1,0 +1,141 @@
+openapi: 3.1.0
+info:
+  title: Kit API V4 Account Broadcasts API
+  description: Kit (formerly ConvertKit) API V4 for email marketing and the creator economy. Manage subscribers, broadcasts, tags, custom fields, forms, and account-level statistics. Supports OAuth 2.0 and API key authentication.
+  version: v4
+  contact:
+    name: Kit Developer Support
+    url: https://developers.kit.com/v4/api-reference
+servers:
+- url: https://api.kit.com/v4
+  description: Kit API V4 production server
+security:
+- ApiKeyAuth: []
+- OAuth2: []
+tags:
+- name: Broadcasts
+  description: One-off email broadcasts
+paths:
+  /broadcasts:
+    get:
+      operationId: listBroadcasts
+      summary: List Broadcasts
+      description: List all broadcasts, including drafts, scheduled, and sent.
+      tags:
+      - Broadcasts
+      responses:
+        '200':
+          description: Successful response with broadcast list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createBroadcast
+      summary: Create Broadcast
+      description: Create a new broadcast as a draft or scheduled send.
+      tags:
+      - Broadcasts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BroadcastRequest'
+      responses:
+        '201':
+          description: Broadcast created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+    Broadcast:
+      type: object
+      properties:
+        id:
+          type: integer
+        subject:
+          type: string
+        preview_text:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        public:
+          type: boolean
+        published_at:
+          type: string
+          format: date-time
+          nullable: true
+        send_at:
+          type: string
+          format: date-time
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    BroadcastRequest:
+      type: object
+      required:
+      - subject
+      properties:
+        subject:
+          type: string
+        preview_text:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        public:
+          type: boolean
+        send_at:
+          type: string
+          format: date-time
+          nullable: true
+    BroadcastListResponse:
+      type: object
+      properties:
+        broadcasts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Broadcast'
+    BroadcastResponse:
+      type: object
+      properties:
+        broadcast:
+          $ref: '#/components/schemas/Broadcast'
+  responses:
+    Unauthorized:
+      description: Missing or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Kit-Api-Key
+      description: Personal API key issued from the Kit developer portal
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.kit.com/oauth/authorize
+          tokenUrl: https://api.kit.com/oauth/token
+          scopes: {}
