@@ -6,7 +6,20 @@ description: >-
   Kit (formerly ConvertKit) is an email marketing and creator platform. The Kit API V4
   exposes subscribers, broadcasts, sequences, tags, custom fields, forms, purchases,
   and webhooks. V3 is deprecated.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/kit.png
 tags:
   - Email Marketing
   - Creator Economy
@@ -17,52 +30,82 @@ created: '2026-05-08'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
-  - aid: kit:kit-api-v4
-    name: Kit API V4
-    humanURL: https://developers.kit.com/v4/api-reference
-    baseURL: https://api.kit.com/v4
-    tags:
-      - Email Marketing
-      - Subscribers
-      - Broadcasts
-      - Sequences
-      - Tags
-      - Forms
-      - Webhooks
-    description: >-
-      Kit API V4 supports OAuth 2.0 and API key authentication. It provides cursor-based
-      pagination, bulk requests, and async processing across subscribers, broadcasts,
-      sequences, tags, custom fields, forms, purchases, and webhook subscriptions.
-      It supersedes the deprecated V3 API.
-    properties:
-      - type: Documentation
-        url: https://developers.kit.com/v4/api-reference
-      - type: Authentication
-        url: https://developers.kit.com/v4/api-reference/authentication
-      - type: Webhooks
-        url: https://developers.kit.com/v4/api-reference/webhooks
-      - type: Migration
-        url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
-      - type: OpenAPI
-        url: openapi/kit-openapi.yml
-      - type: AsyncAPI
-        url: asyncapi/kit-webhooks-asyncapi.yml
-  - aid: kit:kit-api-v3
-    name: Kit API V3 (Deprecated)
-    humanURL: https://developers.kit.com/v3/api-reference
-    baseURL: https://api.convertkit.com/v3
-    tags:
-      - Email Marketing
-      - Subscribers
-      - Deprecated
-    description: >-
-      The legacy ConvertKit V3 API is deprecated and slated for discontinuation; new
-      integrations should target V4.
-    properties:
-      - type: Documentation
-        url: https://developers.kit.com/v3/api-reference
-      - type: Deprecation
-        url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
+- aid: kit:kit-api-v3
+  name: Kit API V3 (Deprecated)
+  humanURL: https://developers.kit.com/v3/api-reference
+  baseURL: https://api.convertkit.com/v3
+  tags:
+  - Email Marketing
+  - Subscribers
+  - Deprecated
+  description: >-
+    The legacy ConvertKit V3 API is deprecated and slated for discontinuation; new integrations should
+    target V4.
+  properties:
+  - type: Documentation
+    url: https://developers.kit.com/v3/api-reference
+  - type: Deprecation
+    url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
+- aid: kit:kit-account-api
+  name: Kit Account API
+  description: Account, creator profile, and account-level statistics
+  humanURL: https://developers.kit.com/v4/api-reference
+  baseURL: https://api.kit.com/v4
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/kit-account-api-openapi.yml
+  - type: Documentation
+    url: https://developers.kit.com/v4/api-reference
+  - type: Authentication
+    url: https://developers.kit.com/v4/api-reference/authentication
+  - type: Webhooks
+    url: https://developers.kit.com/v4/api-reference/webhooks
+  - type: Migration
+    url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
+  - type: AsyncAPI
+    url: asyncapi/kit-webhooks-asyncapi.yml
+- aid: kit:kit-broadcasts-api
+  name: Kit Broadcasts API
+  description: One-off email broadcasts
+  humanURL: https://developers.kit.com/v4/api-reference
+  baseURL: https://api.kit.com/v4
+  tags:
+  - Broadcasts
+  properties:
+  - type: OpenAPI
+    url: openapi/kit-broadcasts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.kit.com/v4/api-reference
+  - type: Authentication
+    url: https://developers.kit.com/v4/api-reference/authentication
+  - type: Webhooks
+    url: https://developers.kit.com/v4/api-reference/webhooks
+  - type: Migration
+    url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
+  - type: AsyncAPI
+    url: asyncapi/kit-webhooks-asyncapi.yml
+- aid: kit:kit-subscribers-api
+  name: Kit Subscribers API
+  description: Subscriber records and lifecycle
+  humanURL: https://developers.kit.com/v4/api-reference
+  baseURL: https://api.kit.com/v4
+  tags:
+  - Subscribers
+  properties:
+  - type: OpenAPI
+    url: openapi/kit-subscribers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.kit.com/v4/api-reference
+  - type: Authentication
+    url: https://developers.kit.com/v4/api-reference/authentication
+  - type: Webhooks
+    url: https://developers.kit.com/v4/api-reference/webhooks
+  - type: Migration
+    url: https://developers.kit.com/v4/api-reference/v3-to-v4-upgrade-guide
+  - type: AsyncAPI
+    url: asyncapi/kit-webhooks-asyncapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/kit-agentic-access.yml
