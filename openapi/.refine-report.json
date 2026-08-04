@@ -1,0 +1,18 @@
+{
+  "provider": "kit",
+  "sources": [
+    "kit-account-api-openapi.yml",
+    "kit-broadcasts-api-openapi.yml",
+    "kit-subscribers-api-openapi.yml"
+  ],
+  "outputs": [
+    "kit-account-api-openapi.yml",
+    "kit-broadcasts-api-openapi.yml",
+    "kit-subscribers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
