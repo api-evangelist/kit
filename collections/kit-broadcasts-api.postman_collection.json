@@ -1,0 +1,320 @@
+{
+  "item": [
+    {
+      "id": "af8c0a3e-b04e-465f-ab3a-4358255183c5",
+      "name": "Broadcasts",
+      "description": {
+        "content": "One-off email broadcasts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eeab7458-a31c-418a-a63e-a2046d6ae62f",
+          "name": "List Broadcasts",
+          "request": {
+            "name": "List Broadcasts",
+            "description": {
+              "content": "List all broadcasts, including drafts, scheduled, and sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "broadcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07c99546-7daa-400e-a48c-ce282e22bb34",
+              "name": "Successful response with broadcast list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"broadcasts\": [\n    {\n      \"id\": 2078,\n      \"subject\": \"string\",\n      \"preview_text\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"public\": false,\n      \"published_at\": \"1975-01-08T03:33:41.095Z\",\n      \"send_at\": \"1978-07-30T01:08:38.887Z\",\n      \"created_at\": \"1993-06-21T05:04:09.206Z\"\n    },\n    {\n      \"id\": 7665,\n      \"subject\": \"string\",\n      \"preview_text\": \"string\",\n      \"description\": \"string\",\n      \"content\": \"string\",\n      \"public\": false,\n      \"published_at\": \"2015-01-05T01:48:46.225Z\",\n      \"send_at\": \"1994-12-19T17:22:03.379Z\",\n      \"created_at\": \"2011-08-22T08:14:09.755Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50776d47-dbcc-491b-8854-288f87241d9a",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01470986-c420-4fef-b7af-76e27a3d4a63",
+          "name": "Create Broadcast",
+          "request": {
+            "name": "Create Broadcast",
+            "description": {
+              "content": "Create a new broadcast as a draft or scheduled send.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "broadcasts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"preview_text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"public\": \"<boolean>\",\n  \"send_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a8ef86d1-e2ef-4208-a7cc-6fa40d20f0a3",
+              "name": "Broadcast created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"preview_text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"public\": \"<boolean>\",\n  \"send_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"broadcast\": {\n    \"id\": 7713,\n    \"subject\": \"string\",\n    \"preview_text\": \"string\",\n    \"description\": \"string\",\n    \"content\": \"string\",\n    \"public\": true,\n    \"published_at\": \"2024-03-17T02:45:43.325Z\",\n    \"send_at\": \"2020-08-30T05:33:44.876Z\",\n    \"created_at\": \"2005-10-10T09:16:22.609Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5039b342-99a5-4655-986c-85d169afde4e",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "broadcasts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Kit-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"preview_text\": \"<string>\",\n  \"description\": \"<string>\",\n  \"content\": \"<string>\",\n  \"public\": \"<boolean>\",\n  \"send_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kit.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Kit-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f44a7fae-317b-45a6-b9a3-a4ed0d45f302",
+    "name": "Kit API V4 Account Broadcasts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kit (formerly ConvertKit) API V4 for email marketing and the creator economy. Manage subscribers, broadcasts, tags, custom fields, forms, and account-level statistics. Supports OAuth 2.0 and API key authentication.\n\nContact Support:\n Name: Kit Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

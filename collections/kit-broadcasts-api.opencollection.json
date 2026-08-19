@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kit API V4 Account Broadcasts API",
+    "version": "v4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Kit-Api-Key",
+      "value": "{{X-Kit-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Broadcasts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Broadcasts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kit.com/v4/broadcasts"
+          },
+          "docs": "List all broadcasts, including drafts, scheduled, and sent."
+        },
+        {
+          "info": {
+            "name": "Create Broadcast",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.kit.com/v4/broadcasts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new broadcast as a draft or scheduled send."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

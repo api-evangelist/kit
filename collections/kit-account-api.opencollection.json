@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kit API V4 Account API",
+    "version": "v4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Kit-Api-Key",
+      "value": "{{X-Kit-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kit.com/v4/account"
+          },
+          "docs": "Retrieve the current Kit account and associated user information."
+        },
+        {
+          "info": {
+            "name": "Get Account Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kit.com/v4/account/colors"
+          },
+          "docs": "List configured color preferences for the account."
+        },
+        {
+          "info": {
+            "name": "Update Account Colors",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.kit.com/v4/account/colors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the color preferences for the account."
+        },
+        {
+          "info": {
+            "name": "Get Email Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kit.com/v4/account/email_stats"
+          },
+          "docs": "Retrieve email statistics for the last 90 days."
+        },
+        {
+          "info": {
+            "name": "Get Growth Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kit.com/v4/account/growth_stats",
+            "params": [
+              {
+                "name": "starting",
+                "value": "",
+                "type": "query",
+                "description": "Start of the reporting window (YYYY-MM-DD)"
+              },
+              {
+                "name": "ending",
+                "value": "",
+                "type": "query",
+                "description": "End of the reporting window (YYYY-MM-DD)"
+              }
+            ]
+          },
+          "docs": "Retrieve subscriber growth metrics for a specified period."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
