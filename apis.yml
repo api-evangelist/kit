@@ -119,6 +119,9 @@ apis:
   - type: AsyncAPI
     url: asyncapi/kit-webhooks-asyncapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/kit-capability-edges.yml
+    name: Kit Business Capability Map
   - type: AgenticAccess
     url: agentic-access/kit-agentic-access.yml
   - type: TrustCenter
